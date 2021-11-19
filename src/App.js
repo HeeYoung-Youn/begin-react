@@ -3,11 +3,10 @@ import Hello from "./Hello";
 
 function App() {
   return (
-    <div>
+    <>
       <Hello />
-      <Hello />
-      <Hello />
-    </div>
+      <div>안녕히계세요.</div>
+    </>
   );
 }
 
