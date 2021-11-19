@@ -1,8 +1,20 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
+import CreateUser from "./CreateUser";
 import UserList from "./UserList";
 
 function App() {
-  const users = [
+  const [inputs, setInputs] = useState({ username: "", email: "" });
+
+  const { username, email } = inputs;
+  const onChange = (e) => {
+    const { name, value } = e.target;
+    setInputs({
+      ...inputs,
+      [name]: value,
+    });
+  };
+
+  const [users, setUsers] = useState([
     {
       id: 1,
       username: "heeyoung",
@@ -18,16 +30,35 @@ function App() {
       username: "gooroomii",
       email: "gooroomii@gmail.com",
     },
-  ];
+  ]);
 
   const nextId = useRef(4);
 
   const onCreate = () => {
+    const user = {
+      id: nextId.current,
+      username,
+      email,
+    };
+
+    setUsers([...users, user]);
+    // setUsers(users.concat(user));
+    setInputs({ username: "", email: "" });
     console.log(nextId.current);
     nextId.current += 1;
   };
 
-  return <UserList users={users} />;
+  return (
+    <>
+      <CreateUser
+        username={username}
+        email={email}
+        onChange={onChange}
+        onCreate={onCreate}
+      />
+      <UserList users={users} />
+    </>
+  );
 }
 
 export default App;
