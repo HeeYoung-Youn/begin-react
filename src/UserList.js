@@ -9,25 +9,7 @@ const User = ({ user }) => {
   );
 };
 
-const UserList = () => {
-  const users = [
-    {
-      id: 1,
-      username: "heeyoung",
-      email: "yhy1@naver.com",
-    },
-    {
-      id: 2,
-      username: "tester",
-      email: "yhy1@gmail.com",
-    },
-    {
-      id: 3,
-      username: "gooroomii",
-      email: "gooroomii@gmail.com",
-    },
-  ];
-
+const UserList = ({ users }) => {
   return (
     <div>
       {users.map((user) => (
