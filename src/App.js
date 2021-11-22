@@ -3,7 +3,6 @@ import CreateUser from "./CreateUser";
 import UserList from "./UserList";
 
 const countActiveUsers = (users) => {
-  console.log("활성 사용자 수를 세는중...");
   return users.filter((user) => user.active).length;
 };
 
@@ -52,30 +51,22 @@ function App() {
       email,
     };
 
-    setUsers([...users, user]);
-    // setUsers(users.concat(user));
+    setUsers((users) => [...users, user]);
     setInputs({ username: "", email: "" });
-    console.log(nextId.current);
     nextId.current += 1;
-  }, [username, email, users]);
+  }, [username, email]);
 
-  const onRemove = useCallback(
-    (id) => {
-      setUsers(users.filter((user) => user.id !== id));
-    },
-    [users]
-  );
+  const onRemove = useCallback((id) => {
+    setUsers((users) => users.filter((user) => user.id !== id));
+  }, []);
 
-  const onToggle = useCallback(
-    (id) => {
-      setUsers(
-        users.map((user) =>
-          user.id === id ? { ...user, active: !user.active } : user
-        )
-      );
-    },
-    [users]
-  );
+  const onToggle = useCallback((id) => {
+    setUsers((users) =>
+      users.map((user) =>
+        user.id === id ? { ...user, active: !user.active } : user
+      )
+    );
+  }, []);
 
   const count = useMemo(() => countActiveUsers(users), [users]);
 
