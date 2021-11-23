@@ -1,8 +1,8 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
 class Hello extends Component {
   static defaultProps = {
-    name: "이름없음",
+    name: '이름없음',
   };
   render() {
     const { color, isSpecial, name } = this.props;

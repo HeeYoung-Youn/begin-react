@@ -1,5 +1,5 @@
-import React, { useContext } from "react";
-import { UserDispatch } from "./App";
+import React, { useContext } from 'react';
+import { UserDispatch } from './App';
 
 const User = React.memo(function User({ user }) {
   const { username, email, id, active } = user;
@@ -9,16 +9,16 @@ const User = React.memo(function User({ user }) {
     <div>
       <b
         style={{
-          color: active ? "green" : "black",
-          cursor: "pointer",
+          color: active ? 'green' : 'black',
+          cursor: 'pointer',
         }}
-        onClick={() => dispatch({ type: "TOGGLE_USER", id })}
+        onClick={() => dispatch({ type: 'TOGGLE_USER', id })}
       >
         {username}
       </b>
       &nbsp;
       <span>({email})</span>
-      <button onClick={() => dispatch({ type: "REMOVE_USER", id })}>
+      <button onClick={() => dispatch({ type: 'REMOVE_USER', id })}>
         삭제
       </button>
     </div>
@@ -28,7 +28,7 @@ const User = React.memo(function User({ user }) {
 const UserList = ({ users }) => {
   return (
     <div>
-      {users.map((user) => (
+      {users.map(user => (
         <User user={user} key={user.id} />
       ))}
     </div>
@@ -37,5 +37,5 @@ const UserList = ({ users }) => {
 
 export default React.memo(
   UserList,
-  (prevProps, nextProps) => nextProps.users === prevProps.users
+  (prevProps, nextProps) => nextProps.users === prevProps.users,
 );

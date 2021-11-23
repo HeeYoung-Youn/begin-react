@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import * as Sentry from "@sentry/react";
+import React, { Component } from 'react';
+import * as Sentry from '@sentry/react';
 
 class ErrorBoundary extends Component {
   state = {
@@ -7,7 +7,7 @@ class ErrorBoundary extends Component {
   };
 
   componentDidCatch(error, info) {
-    console.log("에러가 발생했습니다");
+    console.log('에러가 발생했습니다');
     console.log({
       error,
       info,
@@ -16,7 +16,7 @@ class ErrorBoundary extends Component {
       error: true,
     });
 
-    if (process.env.NODE_ENV === "production") {
+    if (process.env.NODE_ENV === 'production') {
       Sentry.captureException(error, { extra: info });
     }
   }

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
 class Counter extends Component {
   state = {
@@ -11,31 +11,31 @@ class Counter extends Component {
   };
 
   handleIncrease = () => {
-    this.setState((state) => ({
+    this.setState(state => ({
       counter: state.counter + 1,
     }));
-    this.setState((state) => ({
+    this.setState(state => ({
       counter: state.counter + 1,
     }));
-    this.setState((state) => ({
+    this.setState(state => ({
       counter: state.counter + 1,
     }));
-    this.setState((state) => ({
+    this.setState(state => ({
       counter: state.counter + 1,
     }));
   };
 
   handleDecrease = () => {
-    this.setState((state) => ({
+    this.setState(state => ({
       counter: state.counter - 1,
     }));
-    this.setState((state) => ({
+    this.setState(state => ({
       counter: state.counter - 1,
     }));
-    this.setState((state) => ({
+    this.setState(state => ({
       counter: state.counter - 1,
     }));
-    this.setState((state) => ({
+    this.setState(state => ({
       counter: state.counter - 1,
     }));
   };

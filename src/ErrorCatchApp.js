@@ -1,5 +1,5 @@
-import ErrorBoundary from "./ErrorBoundary";
-import User from "./User";
+import ErrorBoundary from './ErrorBoundary';
+import User from './User';
 
 const ErrorCatchApp = () => {
   return (

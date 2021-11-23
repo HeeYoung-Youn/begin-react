@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 
 const Wrapper = ({ children }) => {
   const style = {
-    border: "2px solid black",
+    border: '2px solid black',
     padding: 16,
   };
 

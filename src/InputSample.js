@@ -1,22 +1,22 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef } from 'react';
 
 const InputSample = () => {
   const [inputs, setInputs] = useState({
-    name: "",
-    nickname: "",
+    name: '',
+    nickname: '',
   });
 
   const nameInput = useRef();
   const { name, nickname } = inputs;
 
-  const onChange = (e) => {
+  const onChange = e => {
     const { name, value } = e.target;
     console.log(inputs);
     setInputs({ ...inputs, [name]: value });
   };
 
   const onReset = () => {
-    setInputs({ name: "", nickname: "" });
+    setInputs({ name: '', nickname: '' });
     nameInput.current.focus();
   };
 

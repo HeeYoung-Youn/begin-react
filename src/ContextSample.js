@@ -1,6 +1,6 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useState } from 'react';
 
-const MyContext = createContext("defaultValue");
+const MyContext = createContext('defaultValue');
 
 const Child = () => {
   const text = useContext(MyContext);
@@ -18,7 +18,7 @@ const GrandParent = () => {
 const ContextSample = () => {
   const [value, setValue] = useState(true);
   return (
-    <MyContext.Provider value={value ? "GOOD" : "BAD"}>
+    <MyContext.Provider value={value ? 'GOOD' : 'BAD'}>
       <GrandParent />
       <button onClick={() => setValue(!value)}>CLICK ME</button>
     </MyContext.Provider>
