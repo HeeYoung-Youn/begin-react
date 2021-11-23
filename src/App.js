@@ -1,4 +1,5 @@
 import React, { useReducer, useMemo, createContext } from "react";
+import produce from "immer";
 import CreateUser from "./CreateUser";
 import UserList from "./UserList";
 
@@ -31,16 +32,13 @@ const reducer = (state, action) => {
   switch (action.type) {
     case "CREATE_USER":
       return {
-        inputs: initialState.inputs,
         users: state.users.concat(action.user),
       };
     case "TOGGLE_USER":
-      return {
-        ...state,
-        users: state.users.map((user) =>
-          user.id === action.id ? { ...user, active: !user.active } : user
-        ),
-      };
+      return produce(state, (draft) => {
+        const user = draft.users.find((user) => user.id === action.id);
+        user.active = !user.active;
+      });
     case "REMOVE_USER":
       return {
         ...state,
